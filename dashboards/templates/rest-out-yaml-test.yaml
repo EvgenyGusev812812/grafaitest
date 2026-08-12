@@ -1,0 +1,104 @@
+apiVersion: dashboard.grafana.app/v1beta1
+kind: Dashboard
+metadata:
+  name: tmpl-rest-out-yaml-test
+spec:
+  annotations:
+    list:
+      - builtIn: 1
+        datasource:
+          type: grafana
+          uid: '-- Grafana --'
+        enable: true
+        hide: true
+        iconColor: rgba(0, 211, 255, 1)
+        name: Annotations & Alerts
+        type: dashboard
+  editable: true
+  fiscalYearStartMonth: 0
+  graphTooltip: 0
+  links: []
+  panels:
+    - collapsed: false
+      gridPos:
+        h: 1
+        w: 24
+        x: 0
+        'y': 0
+      id: 3
+      panels: []
+      title: '[M1] [OTEL]'
+      type: row
+    - gridPos:
+        h: 7
+        w: 23
+        x: 0
+        'y': 1
+      id: 6
+      libraryPanel:
+        name: '[OTEL] Подключение opentelemtry'
+        uid: cf6kdjqejqmm8b
+      title: '[OTEL] Подключение opentelemtry'
+      type: library-panel-ref
+    - gridPos:
+        h: 8
+        w: 7
+        x: 0
+        'y': 8
+      id: 2
+      libraryPanel:
+        name: '[M1] [OTEL] [REST-OUT] RPS by Method'
+        uid: cf6kddx97aww0f
+      title: '[M1] [OTEL] [REST-OUT] RPS by Method'
+      type: library-panel-ref
+    - gridPos:
+        h: 8
+        w: 8
+        x: 7
+        'y': 8
+      id: 4
+      libraryPanel:
+        name: '[M1] [OTEL] [REST-OUT] RPS by HTTP Code'
+        uid: ef6kde6ovztogd
+      title: '[M1] [OTEL] [REST-OUT] RPS by HTTP Code'
+      type: library-panel-ref
+    - gridPos:
+        h: 8
+        w: 8
+        x: 15
+        'y': 8
+      id: 5
+      libraryPanel:
+        name: '[M1] [OTEL] [REST-OUT] P99 Latency by Method'
+        uid: df6kdeg2rrdhcd
+      title: '[M1] [OTEL] [REST-OUT] P99 Latency by Method'
+      type: library-panel-ref
+  preload: false
+  refresh: ''
+  schemaVersion: 42
+  tags: []
+  templating:
+    list:
+      - current:
+          text: positions-stream-rest
+          value: positions-stream-rest
+        definition: label_values(kube_pod_labels,label_app)
+        name: service
+        options: []
+        query:
+          qryType: 1
+          query: label_values(kube_pod_labels,label_app)
+          refId: PrometheusVariableQueryEditor-VariableQuery
+        refresh: 1
+        regex: ''
+        regexApplyTo: value
+        type: query
+  time:
+    from: now-6h
+    to: now
+  timepicker: {}
+  timezone: browser
+  title: rest-out-yaml-test
+  uid: tmpl-rest-out-yaml-test
+  version: 1
+  weekStart: ''
