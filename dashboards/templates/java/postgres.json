@@ -1,0 +1,846 @@
+{
+  "apiVersion": "dashboard.grafana.app/v1beta1",
+  "kind": "Dashboard",
+  "metadata": {
+    "name": "bf5vxt703ottsa"
+  },
+  "spec": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "links": [],
+    "preload": false,
+    "refresh": "",
+    "schemaVersion": 42,
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {},
+          "definition": "label_values(kube_pod_labels,label_app)",
+          "name": "service",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values(kube_pod_labels,label_app)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 1,
+          "regex": "",
+          "regexApplyTo": "value",
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "POSTGRES",
+    "uid": "bf5vxt703ottsa",
+    "version": 31,
+    "weekStart": "",
+    "panels": [
+      {
+        "description": "",
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "Для отображения метрик необходимо в сервисе подключить библиотеки\n```groovy\n    implementation \"io.micrometer:micrometer-core\"\n    implementation \"io.micrometer:micrometer-registry-prometheus\"\n```\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "11.5.0",
+        "title": "Java micrometer",
+        "type": "text",
+        "targets": [
+          {
+            "refId": "A",
+            "datasource": {
+              "uid": "z3rr-c1Vk",
+              "type": "prometheus"
+            }
+          }
+        ],
+        "datasource": {
+          "type": "prometheus",
+          "uid": "z3rr-c1Vk"
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 9
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 4
+        },
+        "id": 5,
+        "panels": [],
+        "title": "[M1] [JAVA]",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "z3rr-c1Vk"
+        },
+        "description": "Подключения к БД",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "links": [],
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Idle connection"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "semi-dark-yellow",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Pending threads"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Timeout connection"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Active connection"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "semi-dark-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "maxDataPoints": 200,
+        "options": {
+          "legend": {
+            "calcs": [
+              "mean",
+              "max"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "maxHeight": 600,
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "pluginVersion": "11.5.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "acea8f27-e32d-4296-970b-7352fb945050"
+            },
+            "editorMode": "code",
+            "exemplar": true,
+            "expr": "sum (hikaricp_connections_active{app=\"${service}\"}) by(instance)",
+            "interval": "",
+            "legendFormat": "Active connection - {{ instance }}",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "acea8f27-e32d-4296-970b-7352fb945050"
+            },
+            "editorMode": "code",
+            "exemplar": true,
+            "expr": "sum (hikaricp_connections_pending{app=\"${service}\"}) by(instance)",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Pending threads - {{ instance }}",
+            "range": true,
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "acea8f27-e32d-4296-970b-7352fb945050"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "exemplar": true,
+            "expr": "sum(hikaricp_connections_idle{app=\"$service\"}) by(instance)",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "interval": "",
+            "legendFormat": "Idle connection - {{ instance }}",
+            "range": true,
+            "refId": "C",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "acea8f27-e32d-4296-970b-7352fb945050"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "exemplar": true,
+            "expr": "sum(hikaricp_connections_timeout_total{app=\"$service\"}) by(instance)",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "interval": "",
+            "legendFormat": "Timeout connection - {{ instance }}",
+            "range": true,
+            "refId": "D",
+            "useBackend": false
+          }
+        ],
+        "title": "[M1] [JAVA] [POSTGRES] HikariCP Connections Count by POD",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 0,
+          "y": 5
+        },
+        "id": 4
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "z3rr-c1Vk"
+        },
+        "description": "Показывает среднее время соденения",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineStyle": {
+                "fill": "solid"
+              },
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "never",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "links": [],
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "maxDataPoints": 200,
+        "options": {
+          "legend": {
+            "calcs": [
+              "mean",
+              "max"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "maxHeight": 600,
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "pluginVersion": "11.5.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "acea8f27-e32d-4296-970b-7352fb945050"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "exemplar": true,
+            "expr": "avg by (instance) \r\n(\r\n\t(\r\n\t\tirate\r\n\t\t\t(hikaricp_connections_usage_seconds_sum{app=\"$service\"}[$__rate_interval])\r\n\t) \r\n\t/\r\n\t(\r\n\t\tirate\r\n\t\t\t(hikaricp_connections_usage_seconds_count{app=\"$service\"}[$__rate_interval])\r\n\t)\r\n)",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "interval": "1m",
+            "legendFormat": "Usage time - {{ instance }}",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "acea8f27-e32d-4296-970b-7352fb945050"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "exemplar": true,
+            "expr": "avg by (instance) \r\n(\r\n\t(\r\n\t\tirate\r\n\t\t\t(hikaricp_connections_creation_seconds_sum{app=\"$service\"}[$__rate_interval])\r\n\t) \r\n\t/\r\n\t(\r\n\t\tirate\r\n\t\t\t(hikaricp_connections_creation_seconds_count{app=\"$service\"}[$__rate_interval])\r\n\t)\r\n)",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "interval": "1m",
+            "legendFormat": "Creation time - {{ instance }}",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "acea8f27-e32d-4296-970b-7352fb945050"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "exemplar": true,
+            "expr": "avg by (instance) \r\n(\r\n\t(\r\n\t\tirate\r\n\t\t\t(hikaricp_connections_acquire_seconds_sum{app=\"$service\"}[$__rate_interval])\r\n\t) \r\n\t/\r\n\t(\r\n\t\tirate\r\n\t\t\t(hikaricp_connections_acquire_seconds_count{app=\"$service\"}[$__rate_interval])\r\n\t)\r\n)",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "interval": "1m",
+            "legendFormat": "Acquired time - {{ instance }}",
+            "range": true,
+            "refId": "C",
+            "useBackend": false
+          }
+        ],
+        "title": "[M1] [OTEL] [POSTGRES] HikariCP Connections Latency by Pod",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 8,
+          "y": 5
+        },
+        "id": 6
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 13
+        },
+        "id": 3,
+        "panels": [],
+        "title": "[M1] [OTEL]",
+        "type": "row"
+      },
+      {
+        "description": "",
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "Для отображения метрик необходимо в сервисе подключить трейсинг. Общий ликбез для всех [тут](https://confluence.bcs.ru/spaces/MB/pages/423119197/%D0%9A%D0%B0%D0%BA+%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82+%D1%82%D1%80%D0%B5%D0%B9%D1%81%D0%B8%D0%BD%D0%B3+%D1%87%D0%B5%D1%80%D0%B5%D0%B7+OpenTelemetry).\n\n### Java\nЕсли вы используете канареечный пайплайн, то трейсинг подключается автоматически, делать ничего дополнительно не нужно.\n\nЕсли у вас свой пайплайн и чарты, тогда нужно выполнить все шаги из [инструкции](https://confluence.bcs.ru/spaces/MB/pages/625206143/%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5+opentelemtry).\n\n### .NET\n\nВстраивается через библиотеку [BCS.Fintech.Tracing](https://gitlab.gitlab.bcs.ru/mybroker/backend/nuget/bcs.fintech.core/-/tree/master/package/src/BCS.Fintech.Tracing/BCS.Fintech.Tracing?ref_type=heads).\n\nВ [шаблон микросервиса](https://confluence.bcs.ru/spaces/MB/pages/539525396/%D0%9A%D0%B0%D0%BA+%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C+%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81+%D0%B8%D0%B7+%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0) она уже подключена и настроена, поэтому все новые сервисы не нуждаются в дополнительных действиях.\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "11.5.0",
+        "title": "[OTEL] Подключение opentelemtry",
+        "type": "text",
+        "targets": [
+          {
+            "refId": "A",
+            "datasource": {
+              "uid": "z3rr-c1Vk",
+              "type": "prometheus"
+            }
+          }
+        ],
+        "datasource": {
+          "type": "prometheus",
+          "uid": "z3rr-c1Vk"
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 14
+        },
+        "id": 8
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "beyxcx6ont728a"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": []
+        },
+        "options": {
+          "legend": {
+            "calcs": [
+              "mean",
+              "max"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "11.5.0",
+        "targets": [
+          {
+            "builderOptions": {
+              "columns": [],
+              "database": "default",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "type": "datetime"
+                }
+              ],
+              "limit": 1000,
+              "meta": {},
+              "mode": "list",
+              "orderBy": [
+                {
+                  "default": true,
+                  "dir": "ASC",
+                  "hint": "time",
+                  "name": ""
+                }
+              ],
+              "queryType": "timeseries",
+              "table": "otel_traces"
+            },
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "beyxcx6ont728a"
+            },
+            "editorType": "sql",
+            "format": 0,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "default",
+                "filters": [
+                  {
+                    "condition": "AND",
+                    "filterType": "custom",
+                    "hint": "time",
+                    "key": "",
+                    "operator": "WITH IN DASHBOARD TIME RANGE",
+                    "type": "datetime"
+                  }
+                ],
+                "limit": 1000,
+                "meta": {},
+                "mode": "list",
+                "orderBy": [
+                  {
+                    "default": true,
+                    "dir": "ASC",
+                    "hint": "time",
+                    "name": ""
+                  }
+                ],
+                "queryType": "timeseries",
+                "table": "otel_traces"
+              }
+            },
+            "pluginVersion": "4.11.1",
+            "queryType": "timeseries",
+            "rawSql": "SELECT\n  toStartOfInterval(Timestamp, toIntervalSecond(${__interval_ms} / 1000)) AS time,\n  'db: ' || SpanAttributes['db.name'] || ' ' || SpanAttributes['db.operation'] as statement,\n  quantile(0.99)(Duration / 1000000) AS p99\nFROM otel.otel_traces\nWHERE\n  $__timeFilter(Timestamp)\n  AND ServiceName in ('${service}', 'bm-${service}')\n  AND SpanAttributes['db.system'] = 'postgresql'\n  AND SpanAttributes['db.operation'] != ''\nGROUP BY time, statement\nORDER BY time",
+            "refId": "A"
+          }
+        ],
+        "title": "[M1] [OTEL] [POSTGRES] P99 by DB and Operation",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 0,
+          "y": 22
+        },
+        "id": 2
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "beyxcx6ont728a"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "recps"
+          },
+          "overrides": []
+        },
+        "options": {
+          "legend": {
+            "calcs": [
+              "mean",
+              "max"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "11.5.0",
+        "targets": [
+          {
+            "builderOptions": {
+              "columns": [],
+              "database": "default",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "type": "datetime"
+                }
+              ],
+              "limit": 1000,
+              "meta": {},
+              "mode": "list",
+              "orderBy": [
+                {
+                  "default": true,
+                  "dir": "ASC",
+                  "hint": "time",
+                  "name": ""
+                }
+              ],
+              "queryType": "timeseries",
+              "table": "otel_traces"
+            },
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "beyxcx6ont728a"
+            },
+            "editorType": "sql",
+            "format": 0,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "default",
+                "filters": [
+                  {
+                    "condition": "AND",
+                    "filterType": "custom",
+                    "hint": "time",
+                    "key": "",
+                    "operator": "WITH IN DASHBOARD TIME RANGE",
+                    "type": "datetime"
+                  }
+                ],
+                "limit": 1000,
+                "meta": {},
+                "mode": "list",
+                "orderBy": [
+                  {
+                    "default": true,
+                    "dir": "ASC",
+                    "hint": "time",
+                    "name": ""
+                  }
+                ],
+                "queryType": "timeseries",
+                "table": "otel_traces"
+              }
+            },
+            "pluginVersion": "4.11.1",
+            "queryType": "timeseries",
+            "rawSql": "SELECT\n  toStartOfInterval(Timestamp, toIntervalSecond(${__interval_ms} / 1000)) AS time,\n  'db: ' || SpanAttributes['db.name'] || ' ' || SpanAttributes['db.operation'] as statement,\n  count() / (${__interval_ms} / 1000) AS qps\nFROM otel.otel_traces\nWHERE\n  $__timeFilter(Timestamp)\n    AND ServiceName in ('${service}', 'bm-${service}')\n  AND SpanAttributes['db.system'] = 'postgresql'\n  AND SpanAttributes['db.operation'] != ''\nGROUP BY time, SpanAttributes['db.operation'], SpanAttributes['db.name']\nORDER BY time",
+            "refId": "A"
+          }
+        ],
+        "title": "[M1] [OTEL] [POSTGRES] RPS by DB and Operation",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 8,
+          "y": 22
+        },
+        "id": 7
+      }
+    ]
+  }
+}

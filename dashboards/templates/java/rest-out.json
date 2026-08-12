@@ -1,0 +1,591 @@
+{
+  "apiVersion": "dashboard.grafana.app/v1beta1",
+  "kind": "Dashboard",
+  "metadata": {
+    "name": "df5v0x04dbls0f"
+  },
+  "spec": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "links": [],
+    "preload": false,
+    "refresh": "",
+    "schemaVersion": 42,
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {},
+          "definition": "label_values(kube_pod_labels,label_app)",
+          "name": "service",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values(kube_pod_labels,label_app)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 1,
+          "regex": "",
+          "regexApplyTo": "value",
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "REST-OUT",
+    "uid": "df5v0x04dbls0f",
+    "version": 31,
+    "weekStart": "",
+    "panels": [
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 3,
+        "panels": [],
+        "title": "[M1] [OTEL]",
+        "type": "row"
+      },
+      {
+        "description": "",
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "Для отображения метрик необходимо в сервисе подключить трейсинг. Общий ликбез для всех [тут](https://confluence.bcs.ru/spaces/MB/pages/423119197/%D0%9A%D0%B0%D0%BA+%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82+%D1%82%D1%80%D0%B5%D0%B9%D1%81%D0%B8%D0%BD%D0%B3+%D1%87%D0%B5%D1%80%D0%B5%D0%B7+OpenTelemetry).\n\n### Java\nЕсли вы используете канареечный пайплайн, то трейсинг подключается автоматически, делать ничего дополнительно не нужно.\n\nЕсли у вас свой пайплайн и чарты, тогда нужно выполнить все шаги из [инструкции](https://confluence.bcs.ru/spaces/MB/pages/625206143/%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5+opentelemtry).\n\n### .NET\n\nВстраивается через библиотеку [BCS.Fintech.Tracing](https://gitlab.gitlab.bcs.ru/mybroker/backend/nuget/bcs.fintech.core/-/tree/master/package/src/BCS.Fintech.Tracing/BCS.Fintech.Tracing?ref_type=heads).\n\nВ [шаблон микросервиса](https://confluence.bcs.ru/spaces/MB/pages/539525396/%D0%9A%D0%B0%D0%BA+%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C+%D0%BC%D0%B8%D0%BA%D1%80%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81+%D0%B8%D0%B7+%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%B0) она уже подключена и настроена, поэтому все новые сервисы не нуждаются в дополнительных действиях.\n",
+          "mode": "markdown"
+        },
+        "pluginVersion": "11.5.0",
+        "title": "[OTEL] Подключение opentelemtry",
+        "type": "text",
+        "targets": [
+          {
+            "refId": "A",
+            "datasource": {
+              "uid": "z3rr-c1Vk",
+              "type": "prometheus"
+            }
+          }
+        ],
+        "datasource": {
+          "type": "prometheus",
+          "uid": "z3rr-c1Vk"
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 23,
+          "x": 0,
+          "y": 1
+        },
+        "id": 6
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "beyxcx6ont728a"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "reqps"
+          },
+          "overrides": []
+        },
+        "options": {
+          "legend": {
+            "calcs": [
+              "mean",
+              "max"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Name",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "11.5.0",
+        "targets": [
+          {
+            "builderOptions": {
+              "columns": [],
+              "database": "default",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "type": "datetime"
+                }
+              ],
+              "limit": 1000,
+              "meta": {},
+              "mode": "list",
+              "orderBy": [
+                {
+                  "default": true,
+                  "dir": "ASC",
+                  "hint": "time",
+                  "name": ""
+                }
+              ],
+              "queryType": "timeseries",
+              "table": "otel_traces"
+            },
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "beyxcx6ont728a"
+            },
+            "editorType": "sql",
+            "format": 0,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "default",
+                "filters": [
+                  {
+                    "condition": "AND",
+                    "filterType": "custom",
+                    "hint": "time",
+                    "key": "",
+                    "operator": "WITH IN DASHBOARD TIME RANGE",
+                    "type": "datetime"
+                  }
+                ],
+                "limit": 1000,
+                "meta": {},
+                "mode": "list",
+                "orderBy": [
+                  {
+                    "default": true,
+                    "dir": "ASC",
+                    "hint": "time",
+                    "name": ""
+                  }
+                ],
+                "queryType": "timeseries",
+                "table": "otel_traces"
+              }
+            },
+            "pluginVersion": "4.11.1",
+            "queryType": "timeseries",
+            "rawSql": "SELECT\n  toStartOfInterval(Timestamp, toIntervalSecond(${__interval_ms} / 1000)) AS time,\n  SpanAttributes['http.request.method'] || ' ' || SpanAttributes['server.address'] as anyFull,\n  count() / (${__interval_ms} / 1000) AS rps\nFROM otel.otel_traces\nWHERE\n  $__timeFilter(Timestamp)\n  AND ServiceName in ('${service}', 'bm-${service}')\n  AND SpanAttributes['url.full'] is not null\n  AND SpanAttributes['url.full'] != ''\nGROUP BY time, SpanAttributes['server.address'], SpanAttributes['http.request.method']\nORDER BY time",
+            "refId": "A"
+          }
+        ],
+        "title": "[M1] [OTEL] [REST-OUT] RPS by Method",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 7,
+          "x": 0,
+          "y": 8
+        },
+        "id": 2
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "beyxcx6ont728a"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "reqps"
+          },
+          "overrides": []
+        },
+        "options": {
+          "legend": {
+            "calcs": [
+              "mean",
+              "max"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "11.5.0",
+        "targets": [
+          {
+            "builderOptions": {
+              "columns": [],
+              "database": "default",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "type": "datetime"
+                }
+              ],
+              "limit": 1000,
+              "meta": {},
+              "mode": "list",
+              "orderBy": [
+                {
+                  "default": true,
+                  "dir": "ASC",
+                  "hint": "time",
+                  "name": ""
+                }
+              ],
+              "queryType": "timeseries",
+              "table": "otel_traces"
+            },
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "beyxcx6ont728a"
+            },
+            "editorType": "sql",
+            "format": 0,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "default",
+                "filters": [
+                  {
+                    "condition": "AND",
+                    "filterType": "custom",
+                    "hint": "time",
+                    "key": "",
+                    "operator": "WITH IN DASHBOARD TIME RANGE",
+                    "type": "datetime"
+                  }
+                ],
+                "limit": 1000,
+                "meta": {},
+                "mode": "list",
+                "orderBy": [
+                  {
+                    "default": true,
+                    "dir": "ASC",
+                    "hint": "time",
+                    "name": ""
+                  }
+                ],
+                "queryType": "timeseries",
+                "table": "otel_traces"
+              }
+            },
+            "pluginVersion": "4.11.1",
+            "queryType": "timeseries",
+            "rawSql": "SELECT\n  toStartOfInterval(Timestamp, toIntervalSecond(${__interval_ms} / 1000)) AS time,\n  count() / (${__interval_ms} / 1000) AS code,\n  ': ' || SpanAttributes['http.response.status_code'] || ', host: ' || SpanAttributes['server.address'] as status_code\nFROM otel.otel_traces\nWHERE\n  $__timeFilter(Timestamp)\n  AND ServiceName in ('${service}', 'bm-${service}')\n  AND SpanAttributes['url.full'] is not null\n  AND SpanAttributes['url.full'] != ''\n  AND SpanAttributes['http.response.status_code'] is not null\n  AND SpanAttributes['http.response.status_code'] != ''\nGROUP BY time, SpanAttributes['server.address'], SpanAttributes['http.response.status_code']\nORDER BY time",
+            "refId": "A"
+          }
+        ],
+        "title": "[M1] [OTEL] [REST-OUT] RPS by HTTP Code",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 7,
+          "y": 8
+        },
+        "id": 4
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "beyxcx6ont728a"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": []
+        },
+        "options": {
+          "legend": {
+            "calcs": [
+              "mean",
+              "max"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "11.5.0",
+        "targets": [
+          {
+            "builderOptions": {
+              "columns": [],
+              "database": "default",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "type": "datetime"
+                }
+              ],
+              "limit": 1000,
+              "meta": {},
+              "mode": "list",
+              "orderBy": [
+                {
+                  "default": true,
+                  "dir": "ASC",
+                  "hint": "time",
+                  "name": ""
+                }
+              ],
+              "queryType": "timeseries",
+              "table": "otel_traces"
+            },
+            "datasource": {
+              "type": "grafana-clickhouse-datasource",
+              "uid": "beyxcx6ont728a"
+            },
+            "editorType": "sql",
+            "format": 0,
+            "meta": {
+              "builderOptions": {
+                "columns": [],
+                "database": "default",
+                "filters": [
+                  {
+                    "condition": "AND",
+                    "filterType": "custom",
+                    "hint": "time",
+                    "key": "",
+                    "operator": "WITH IN DASHBOARD TIME RANGE",
+                    "type": "datetime"
+                  }
+                ],
+                "limit": 1000,
+                "meta": {},
+                "mode": "list",
+                "orderBy": [
+                  {
+                    "default": true,
+                    "dir": "ASC",
+                    "hint": "time",
+                    "name": ""
+                  }
+                ],
+                "queryType": "timeseries",
+                "table": "otel_traces"
+              }
+            },
+            "pluginVersion": "4.11.1",
+            "queryType": "timeseries",
+            "rawSql": "SELECT\n  toStartOfInterval(Timestamp, toIntervalSecond(${__interval_ms} / 1000)) AS time,\n  SpanAttributes['http.request.method'] || ' ' || SpanAttributes['server.address'] as full,\n  quantile(0.99)(Duration / 1000000) AS p99\nFROM otel.otel_traces\nWHERE\n  $__timeFilter(Timestamp)\n  AND ServiceName in ('${service}', 'bm-${service}')\n  AND SpanAttributes['url.full'] is not null\n  AND SpanAttributes['url.full'] != ''\nGROUP BY time, SpanAttributes['server.address'], SpanAttributes['http.request.method']\nORDER BY time",
+            "refId": "A"
+          }
+        ],
+        "title": "[M1] [OTEL] [REST-OUT] P99 Latency by Method",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 15,
+          "y": 8
+        },
+        "id": 5
+      }
+    ]
+  }
+}
