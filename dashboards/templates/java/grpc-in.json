@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
-    "name": "af6hm541kddz4f"
+    "name": "tmpl-grpc-in"
   },
   "spec": {
     "annotations": {
@@ -55,7 +55,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "GRPC-IN",
-    "uid": "af6hm541kddz4f",
+    "uid": "tmpl-grpc-in",
     "version": 51,
     "weekStart": "",
     "panels": [

@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
-    "name": "df5v0x04dbls0f"
+    "name": "tmpl-rest-out"
   },
   "spec": {
     "annotations": {
@@ -55,7 +55,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "REST-OUT",
-    "uid": "df5v0x04dbls0f",
+    "uid": "tmpl-rest-out",
     "version": 31,
     "weekStart": "",
     "panels": [

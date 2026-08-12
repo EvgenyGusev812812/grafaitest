@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
-    "name": "df4l2n6222874c"
+    "name": "tmpl-rest-in"
   },
   "spec": {
     "annotations": {
@@ -56,7 +56,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "REST-IN",
-    "uid": "df4l2n6222874c",
+    "uid": "tmpl-rest-in",
     "version": 98,
     "weekStart": "",
     "panels": [

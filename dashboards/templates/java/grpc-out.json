@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
-    "name": "ch25rpz"
+    "name": "tmpl-grpc-out"
   },
   "spec": {
     "annotations": {
@@ -58,7 +58,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "GRPC-OUT",
-    "uid": "ch25rpz",
+    "uid": "tmpl-grpc-out",
     "version": 10,
     "weekStart": "",
     "panels": [

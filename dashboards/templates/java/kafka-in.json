@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
-    "name": "cf5ypxcixz2f4a"
+    "name": "tmpl-kafka-in"
   },
   "spec": {
     "annotations": {
@@ -55,7 +55,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "KAFKA-IN",
-    "uid": "cf5ypxcixz2f4a",
+    "uid": "tmpl-kafka-in",
     "version": 50,
     "weekStart": "",
     "panels": [

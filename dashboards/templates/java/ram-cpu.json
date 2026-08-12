@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
-    "name": "af5sc007ffx1ce"
+    "name": "tmpl-ram-cpu"
   },
   "spec": {
     "annotations": {
@@ -55,7 +55,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "RAM/CPU",
-    "uid": "af5sc007ffx1ce",
+    "uid": "tmpl-ram-cpu",
     "version": 38,
     "weekStart": "",
     "panels": [

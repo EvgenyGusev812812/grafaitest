@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
-    "name": "chw2czz"
+    "name": "tmpl-redis"
   },
   "spec": {
     "annotations": {
@@ -58,7 +58,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "REDIS",
-    "uid": "chw2czz",
+    "uid": "tmpl-redis",
     "version": 23,
     "weekStart": "",
     "panels": [

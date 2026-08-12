@@ -2,7 +2,7 @@
   "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
-    "name": "cf5yqmcedm9s0c"
+    "name": "tmpl-jvm"
   },
   "spec": {
     "annotations": {
@@ -55,7 +55,7 @@
     "timepicker": {},
     "timezone": "browser",
     "title": "JVM",
-    "uid": "cf5yqmcedm9s0c",
+    "uid": "tmpl-jvm",
     "version": 24,
     "weekStart": "",
     "panels": [
